@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Vol;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('vols', 'VolController');
+Route::resource('reservations', 'ReservationController');

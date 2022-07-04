@@ -1,30 +1,30 @@
-<!-- create.blade.php -->
-
 @extends('layout')
 
 @section('content')
+
 <style>
   .uper {
-  
     margin-top: 40px;
   }
-  .card-header {
-    width:50%;
-    margin: auto;
-    margin-top: 50px;
-    text-align: center;
-    font-weight:bold;
-    font-size:20px;
-    background-color:#FFA07A;
+  label{
+     color:blue;
+  }
+  /* table{
+     margin-top: 100px
+  } */
+   h1{
+     color:blue;
+     margin-top: 100px
   }
 </style>
 
-
+<div class="card uper">
   <div class="card-header">
-  Ajouter un vol
+    Modifier le vol
   </div>
 
   <div class="card-body">
+
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul>
@@ -34,10 +34,7 @@
         </ul>
       </div><br />
     @endif
-    <form>
- 
-</form>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"> <img src="../img/logo.png" alt="" width=200px; ></a>
     <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
@@ -74,37 +71,43 @@
     </div>
   </div>
 </nav>
-      <form style="width:50%;margin:auto;" method="post" action="{{ route('vols.store') }}">
-        @csrf
-<div class="form-group">
-    <label for="formGroupExampleInput">Code Vol</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="code" placeholder="AF0520">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Date de Depart</label>
-    <input type="date" class="form-control" id="formGroupExampleInput2" name="date_depart" placeholder="Another input">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput3">Heure de Depart</label>
-    <input type="time" class="form-control" id="formGroupExampleInput3" name="heure_depart" placeholder="10H30">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput4">Nombre de place en Classe A</label>
-    <input type="number" class="form-control" id="formGroupExampleInput4" name="nbre_plc_classA" placeholder="ClasseA">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput5">Nombre de place en Classe B</label>
-    <input type="number" class="form-control" id="formGroupExampleInput5" name="nbre_plc_classB" placeholder="ClasseB">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput6">Prix Classe A</label>
-    <input type="number" class="form-control" id="formGroupExampleInput6" name="prixA" placeholder="1200000">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput7">Prix Classe B</label>
-    <input type="number" class="form-control" id="formGroupExampleInput7" name="prixB" placeholder="2000000">
-  </div>
-          <button type="submit" class="btn btn-primary">Ajouter</button>
+  <table>
+    <h1>les informations sur le Vol</h1>
+    
+  </table>
+      <form  style="width:50%;margin:auto;" method="post" action="{{ route('vols.update', $vol->id ) }}">
+          <div class="form-group">
+              @csrf
+              @method('PATCH')
+              <label for="code">Vol:</label>
+              {{ $vol->code }}
+          </div>
+
+          <div class="form-group">
+              <label for="date">Date de depart :</label>
+             {{ $vol->date_depart }}
+          </div>
+          <div class="form-group">
+              <label for="heure">Heure de depart :</label>
+             {{ $vol->heure_depart }}
+          </div>
+          <div class="form-group">
+              <label for="plcA">Nombre de place de la Classe A :</label>
+            {{ $vol->nbre_plc_classA }}
+          </div>
+          <div class="form-group">
+              <label for="plcB">Nombre de place de la Classe B :</label>
+             {{ $vol->nbre_plc_classB }}
+          </div>
+          <div class="form-group">
+              <label for="prixA">Prix de la Classe A :</label>
+              {{ $vol->prixA }}
+          </div>
+          <div class="form-group">
+              <label for="prixB">Prix de la Classe B :</label>
+              {{ $vol->prixB }}
+          </div>
+          
       </form>
   </div>
 </div>
