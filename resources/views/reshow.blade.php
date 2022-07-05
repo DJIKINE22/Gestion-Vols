@@ -6,11 +6,21 @@
   .uper {
     margin-top: 40px;
   }
+  label{
+     color:blue;
+  }
+  /* table{
+     margin-top: 100px
+  } */
+   h1{
+     color:blue;
+     margin-top: 100px
+  }
 </style>
 
 <div class="card uper">
   <div class="card-header">
-    Modifier la reservation
+    Modifier le vol
   </div>
 
   <div class="card-body">
@@ -61,33 +71,35 @@
     </div>
   </div>
 </nav>
-      <form  style="width:50%;margin:auto;" method="post" action="{{ route('reservations.update', $reserv->id ) }}">
+  <table>
+    <h1>les informations sur la reservation</h1>
+    
+  </table>
+      <form  style="width:50%;margin:auto;" method="post" action="">
           <div class="form-group">
               @csrf
               @method('PATCH')
-              <label for="code">Nom  :</label>
-              <input type="text" class="form-control" name="nom" value="{{ $reserv->nom }}"/>
+              <label for="code">Nom:</label>
+              {{ $reservation->nom }}
           </div>
 
           <div class="form-group">
               <label for="date">Prenom :</label>
-              <input type="text" class="form-control" name="prenom" value="{{ $reserv->prenom}}"/>
+             {{ $reservation->prenom }}
           </div>
           <div class="form-group">
               <label for="heure">Sexe :</label>
-              <input type="text" class="form-control" name="sexe" value="{{ $reserv->sexe }}"/>
+             {{ $reservation->sexe }}
           </div>
           <div class="form-group">
               <label for="plcA">Vol :</label>
-              <input type="number" class="form-control" name="vol" value="{{ $reserv->vol }}"/>
+            {{ $reservation->vol }}
           </div>
           <div class="form-group">
-              <label for="plcB">Type de classe :</label>
-              <input type="text" class="form-control" name="classe" value="{{ $reserv->classe }}"/>
-          </div>
-        
-          </div>
-          <button type="submit" class="btn btn-primary">Modifier</button>
+              <label for="plcB">Classe :</label>
+             {{ $reservation->classe }}
+          
+          
       </form>
   </div>
 </div>

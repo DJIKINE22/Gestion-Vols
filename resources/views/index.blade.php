@@ -11,7 +11,7 @@
   .card-header {
     width:50%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 120px;
     text-align: center;
     font-weight:bold;
     font-size:20px;

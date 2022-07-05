@@ -65,6 +65,26 @@ class ReservationController extends Controller
     public function show($id)
     {
         //
+        try {
+
+            $reservation = Reservation::findOrFail(2);
+
+            
+
+        } 
+
+        catch (ModelNotFoundException $e) {
+
+            
+
+        }
+
+        catch (Throwable $e) {
+
+            \Log::error('Erreur inattendue : ', [$e]);
+
+        }
+        return view('reshow', compact('reservation'));
     }
 
     /**

@@ -119,7 +119,7 @@
           <a class="nav-link" href="{{ url('vols') }}">VOLS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/') }}">RESERVATIONS</a>
+          <a class="nav-link" href="{{ url('reservations') }}">RESERVATIONS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">CONTACT</a>
