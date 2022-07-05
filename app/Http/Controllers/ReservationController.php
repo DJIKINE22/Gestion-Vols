@@ -53,7 +53,7 @@ class ReservationController extends Controller
     
         $reser = Reservation::create($validatedData);
     
-        return redirect('/reservations')->with('success', 'Vol créer avec succèss');
+        return redirect('/reservations')->with('success', 'Reservation effectuer avec succèss');
     }
 
     /**
@@ -78,7 +78,7 @@ class ReservationController extends Controller
         //
         $reserv = Reservation::findOrFail($id);
 
-        return view('edit', compact('reserv'));
+        return view('reseredit', compact('reserv'));
     }
 
     /**
